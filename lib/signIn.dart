@@ -1,3 +1,5 @@
+import 'signUp.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class MofiNowLoginPage extends StatefulWidget {
@@ -137,11 +139,12 @@ class _MofiNowLoginPageState extends State<MofiNowLoginPage> {
                                     color: Color(0xFF228B22),
                                     fontWeight: FontWeight.bold,
                                   ),
-                                  // recognizer: TapGestureRecognizer()
-                                  //   ..onTap = () {
-                                  //     print("Sign Up tapped");
-                                  //     // Navigate to sign up page
-                                  //   },
+                                  recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => SignUpPage(),
+                                    ));
+                                  },
                                 ),
                               ],
                             ),

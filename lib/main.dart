@@ -1,3 +1,4 @@
+import 'signUp.dart';
 import 'signIn.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ void main()=>
     runApp(
          MaterialApp(
           home: MofiNowLoginPage(), //Scaffold app
+          // home: SignUpPage(), //Scaffold app
         ),//Material app
     );
     
