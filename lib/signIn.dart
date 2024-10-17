@@ -157,14 +157,17 @@ class _MofiNowLoginPageState extends State<MofiNowLoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             _socialLoginButton(
-                              icon: Icons.g_mobiledata,
-                              color: Colors.red,
+                              icon: Image.asset(
+                                'assets/icons8-google-48.png',
+                                height: 24,
+                                width: 24,),
+                              color: Colors.white,
                               onTap: () => print('Google login tapped'),
                             ),
                             SizedBox(width: 20),
                             _socialLoginButton(
                               icon: Icons.facebook,
-                              color: Colors.blue[900]!,
+                              color: Colors.blue,
                               onTap: () => print('Facebook login tapped'),
                             ),
                             SizedBox(width: 20),
@@ -196,7 +199,9 @@ class _MofiNowLoginPageState extends State<MofiNowLoginPage> {
 }
 
 Widget _socialLoginButton({
-  required IconData icon,
+  // required IconData icon,
+  // required Widget icon,
+  required dynamic icon,
   required Color color,
   required VoidCallback onTap,
 }) {
@@ -206,9 +211,12 @@ Widget _socialLoginButton({
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.grey[200],
+        color: Colors.white,
+        border: Border.all(color: Colors.grey[300]!, width: 1),
       ),
-      child: Icon(icon, color: color, size: 30),
+      child: icon is IconData
+          ? Icon(icon as IconData)
+          : (icon is Widget ? icon : Icon(Icons.error)),
     ),
   );
 }
